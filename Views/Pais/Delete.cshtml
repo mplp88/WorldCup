@@ -1,0 +1,15 @@
+@using Microsoft.AspNetCore
+@model Pais
+
+<h1>Eliminar</h1>
+<h3>¿Estás seguro de que querés eliminar este registro?</h3>
+@using(Html.BeginForm()) {
+    @Html.HiddenFor(model => model.Id)
+    <div class="row">
+        @Html.LabelFor(model => model.Nombre, "Nombre", new { @class = "form-label" })
+        @Html.DisplayFor(model => model.Nombre)
+    </div>
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+}
+
+@Html.ActionLink("Volver", "Index")

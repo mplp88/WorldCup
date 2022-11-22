@@ -1,0 +1,15 @@
+@using Microsoft.AspNetCore
+@model Pais
+
+<h1>Agregar</h1>
+
+@using(Html.BeginForm(FormMethod.Post)) 
+{
+    <div class="row">
+        @Html.LabelFor(model => model.Nombre, "Nombre", new { @class = "form-label" })
+        @Html.EditorFor(model => model.Nombre, "Nombre", "Nombre", new { htmlAttributes = new { @class = "form-control", @autofocus = "autofocus" } })
+    </div>
+    <button type="submit" class="btn btn-primary">Crear</button>
+}
+
+@Html.ActionLink("Volver", "Index")

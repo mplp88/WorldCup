@@ -1,0 +1,35 @@
+@model IEnumerable<Pais>;
+@{
+    ViewData["Title"] = "Paises";
+}
+<h1>@ViewData["Title"]</h1>
+
+@if(ViewBag.PaisesCount < 32) {
+ @Html.ActionLink("Agregar", "Create");
+}
+
+<p id="paises-count">Cantidad paises: @ViewBag.PaisesCount</p>
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th></th>
+    </tr>
+    @foreach (var pais in Model)
+    {
+        <tr>
+            <td>@pais.Id</td>
+            <td>@pais.Nombre</td>
+            <td>
+                @Html.ActionLink("Modificar", "Edit", new { Id = pais.Id}) |
+                @Html.ActionLink("Eliminar", "Delete", new { Id = pais.Id})
+            </td>
+        </tr>
+    }
+</table>
+
+@section Scripts {
+<script>
+</script>
+}
